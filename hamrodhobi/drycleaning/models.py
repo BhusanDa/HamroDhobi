@@ -1,5 +1,11 @@
 from django.db import models
 
+STATUS_CHOICES = [
+    ('s', 'Succesful'),
+    ('p', 'Processing'),
+    ('v', 'Verified'),
+]
+
 # Create your models here.
 class Order(models.Model):
     firstname=models.CharField(max_length=100)
@@ -11,6 +17,7 @@ class Order(models.Model):
     clothtype=models.CharField(max_length=50)
     choose_service=models.CharField(max_length=50)
     address=models.CharField(max_length=50)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES,default='DEFAULT VALUE')
 
 #what you want to show in admin panel name or address or anything
 #tab should be given after defining function
